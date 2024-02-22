@@ -4,16 +4,18 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
-return (
+  return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <Routes>
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer />} />
-          <Route path='/item/:productId' element={<ItemDetailContainer />} />
-          <Route path='*' element={<h1>404</h1>} />
-        </Routes>
+        <div className="main-content" style={{ marginTop: '5rem' }}>
+          <Routes>
+            <Route path='/' element={<ItemListContainer />} />
+            <Route path='/category/:categoryId' element={<ItemListContainer />} />
+            <Route path='/item/:productId' element={<ItemDetailContainer />} />
+            <Route path='*' element={<h1>404</h1>} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </div> 
   );
