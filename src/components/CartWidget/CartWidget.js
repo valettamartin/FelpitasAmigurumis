@@ -2,7 +2,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 
 const CartWidget = () => {
     return (
-        <div className="shoppingCartContainer">
+        <div>
             <MdOutlineShoppingCart />
             0
         </div>

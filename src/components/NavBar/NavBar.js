@@ -5,11 +5,11 @@ import "bulma/css/bulma.css"
 
 const NavBar = () => {
     return (
-        <nav className="hero hero-head is-primary NavBar">
+        <nav className="hero hero-head is-primary">
             <Link to={'/'}>
                 <h2 className="title">Felpita's Amigurumis</h2>
             </Link>
-            <div className='Categories'>
+            <div>
                 <NavLink to={`/category/small`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Llaveros</NavLink>
                 <NavLink to={`/category/medium`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Medianos</NavLink>
                 <NavLink to={`/category/big`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Grandes</NavLink>
