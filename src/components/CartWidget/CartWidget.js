@@ -1,10 +1,9 @@
-import cart from '../../assets/cart.png'
-import './CartWidget.css'
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 const CartWidget = () => {
     return (
         <div className="shoppingCartContainer">
-            <img src={cart} alt="carrito" />
+            <MdOutlineShoppingCart />
             0
         </div>
     )
