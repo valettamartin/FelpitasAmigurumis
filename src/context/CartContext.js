@@ -1,37 +1,44 @@
 import { createContext, useState } from "react";
+import { useEffect } from "react";
 
 export const CartContext = createContext({
-    cart:[]
-})
+    cart: []
+});
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(() => {
+        const storedCart = localStorage.getItem('cart');
+        return storedCart ? JSON.parse(storedCart) : [];
+    });
 
-    console.log(cart)
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }, [cart]);
 
     const addItem = (item, quantity) => {
-        if(!isInCart(item.id)) {
-            setCart(prev => [...prev, {item, quantity}])
+        if (!isInCart(item.id)) {
+            setCart(prev => [...prev, { item, quantity }]);
         } else {
-            console.error('El producto ya ha sido agregado')
+            console.error('El producto ya ha sido agregado');
         }
-    }
+    };
 
     const removeItem = (itemId) => {
-        const cartUpdated = cart.filter(prod => prod.id !== itemId)
-    }
+        const cartUpdated = cart.filter(({ item }) => item.id !== itemId);
+        setCart(cartUpdated);
+    };
 
     const clearCart = () => {
-        setCart ([])
-    }
+        setCart([]);
+    };
 
     const isInCart = (itemId) => {
-        return cart.some(prod => prod.id === itemId)
-    }
+        return cart.some(({ item }) => item.id === itemId);
+    };
 
     return (
-        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart}}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart }}>
             {children}
         </CartContext.Provider>
-    )
-}
+    );
+};
