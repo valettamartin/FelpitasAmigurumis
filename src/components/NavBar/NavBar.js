@@ -27,9 +27,7 @@ const NavBar = () => {
                         <NavLink to={`/category/Grande`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Grandes</NavLink>
                     </div>
                     <div className="navbar-item">
-                        <button className="button is-white">
-                            <CartWidget />
-                        </button>
+                        <CartWidget />
                     </div>
                 </div>
             </div>
