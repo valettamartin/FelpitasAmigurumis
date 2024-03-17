@@ -1,0 +1,29 @@
+.fill {
+    width: 100%;
+    height: 100%;
+}
+
+.detail_container {
+    margin-top: 5vw;
+}
+
+.description_container {
+    padding-left: 1vw;
+}
+
+.parent {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+    
+.div1 { grid-area: 1 / 1 / 2 / 11; }
+.div2 { grid-area: 2 / 1 / 8 / 11; }
+.div3 { grid-area: 9 / 8 / 12 / 12; } 
+
+.image_container {
+    padding-right: 2vw;
+}

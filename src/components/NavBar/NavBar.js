@@ -18,16 +18,18 @@ const NavBar = () => {
             <div className="navbar-menu is-active">
                 <div className="navbar-end">
                     <div className="navbar-item">
-                        <NavLink to={`/category/small`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Llaveros</NavLink>
+                        <NavLink to={`/category/Pequeño`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Llaveros</NavLink>
                     </div>
                     <div className="navbar-item">
-                        <NavLink to={`/category/medium`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Medianos</NavLink>
+                        <NavLink to={`/category/Mediano`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Medianos</NavLink>
                     </div>
                     <div className="navbar-item">
-                        <NavLink to={`/category/big`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Grandes</NavLink>
+                        <NavLink to={`/category/Grande`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Grandes</NavLink>
                     </div>
                     <div className="navbar-item">
-                        <CartWidget />
+                        <button className="button is-white">
+                            <CartWidget />
+                        </button>
                     </div>
                 </div>
             </div>

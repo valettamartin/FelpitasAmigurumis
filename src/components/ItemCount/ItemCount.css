@@ -1,0 +1,22 @@
+.parent_footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 100%;
+    height: 100%;
+    gap: 1em;
+}
+    
+.div1_footer { grid-area: 1 / 1 / 2 / 2; }
+.div2_footer { 
+    grid-area: 1 / 2 / 2 / 3;
+    text-align: center; 
+}
+.div3_footer { grid-area: 1 / 3 / 2 / 4; }
+.div4_footer { 
+    grid-area: 2 / 1 / 3 / 4; 
+    width: 100%;
+    text-align: end;
+} 
