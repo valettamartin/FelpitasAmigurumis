@@ -1,0 +1,8 @@
+a {
+    color: hsl(0, 0%, 21%);
+}
+
+a:hover {
+    color: hsl(0, 0%, 4%);
+    font-weight: bold
+}

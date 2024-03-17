@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import { getDocs, collection, query, where } from "firebase/firestore"
 import { db } from "../../config/firebase"
 
+import "./ItemListContainer.css"
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
@@ -26,7 +27,7 @@ const ItemListContainer = ({ greeting }) => {
     }, [categoryId]);
 
     return (
-        <div>
+        <div className="has_margin_top">
             <h1>{greeting}</h1>
             <ItemList products={products} />
         </div>

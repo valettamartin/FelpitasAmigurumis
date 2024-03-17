@@ -1,0 +1,11 @@
+.form_has_container {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.form_send {
+    margin-top: 2vw;
+    text-align: right;
+}

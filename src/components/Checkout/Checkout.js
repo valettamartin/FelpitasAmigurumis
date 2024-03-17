@@ -4,6 +4,9 @@ import { Timestamp, collection, documentId, getDocs, addDoc, query, where, write
 import { db } from "../../config/firebase"
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
 
+import "bulma/css/bulma.css"
+import "./Checkout.css"
+
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
@@ -78,16 +81,16 @@ const Checkout = () => {
     }
 
     if (loading) {
-        return <h1>Estamos generando su orden...</h1>
+        return <h1 className="container card title is-size-3 has-text-centered purchase_detail">Estamos generando su orden...</h1>
     }
 
     if (orderId) {
-        return <h1>Puede identificar su orden con el siguiente código: {orderId}</h1>
+        return <h1 className="container card title is-size-3 has-text-centered purchase_detail">Puede identificar su orden con el siguiente código: {orderId}</h1>
     }
 
     return (
-        <div>
-            <h1>Checkout</h1>
+        <div className="container card main_cart_container">
+            <h1 className="is-size-2 has-text-centered has-text-weight-semibold">Checkout</h1>
             <CheckoutForm onConfirm={createOrder} />
         </div>
     )

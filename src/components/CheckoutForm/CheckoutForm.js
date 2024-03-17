@@ -1,38 +1,62 @@
 import { useState } from "react";
 
+import "./CheckoutForm.css"
+
 const CheckoutForm = ({ onConfirm }) => {
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+
+    const handlePhoneChange = ({ target }) => {
+        const value = target.value.replace(/\D/g, '');
+        setPhone(value);
+    };
+
+    const handleEmailChange = ({ target }) => {
+        setEmail(target.value);
+    };
 
     const handleConfirm = (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
-        const userData = {
-            name, phone, email
+        if (!email.includes('@')) {
+            alert('El correo electrónico debe contener "@"');
+            return;
         }
 
-        onConfirm(userData)
-    }
+        const userData = {
+            name,
+            phone,
+            email
+        };
+
+        onConfirm(userData);
+    };
 
     return (
-        <div>
+        <div className="container form_has_container">
             <form onSubmit={handleConfirm}>
-                <label>
-                    <input type='text' value={name} onChange={({ target }) => setName(target.value)}/>
-                </label>
-                <label>
-                    <input type='text' value={phone} onChange={({ target }) => setPhone(target.value)}/>
-                </label>
-                <label>
-                    <input type='text' value={email} onChange={({ target }) => setEmail(target.value)}/>
-                </label>
-                <div>
-                    <button type='submit'>Confirmar pedido</button>
+                <div className="field">
+                    <p className="control">
+                        <input className="input is-medium" type='text' value={name} onChange={({ target }) => setName(target.value)} placeholder="Nombre" required/>
+                    </p>
+                </div>
+                <div className="field">
+                    <p className="control">
+                        <input className="input is-medium" type='text' value={phone} onChange={handlePhoneChange} placeholder="Teléfono" required />
+                    </p>
+                </div>
+                <div className="field">
+                    <p className="control">
+                        <input className="input is-medium" type='text' value={email} onChange={handleEmailChange} placeholder="Email" required/>
+                    </p>
+                </div>
+                <div className="field form_send">
+                    <button type='submit' className="button is-primary is-size-5">Confirmar pedido</button>
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default CheckoutForm
+export default CheckoutForm;
